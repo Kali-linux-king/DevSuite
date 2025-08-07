@@ -1,0 +1,179 @@
+@import '../../assets/scss/base/variables';
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: $spacing-md 0;
+  background: transparent;
+  z-index: 1000;
+  transition: all 0.3s ease;
+
+  &.scrolled {
+    background: rgba($darker, 0.95);
+    backdrop-filter: blur(10px);
+    padding: $spacing-sm 0;
+    box-shadow: $shadow-md;
+  }
+}
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-lg;
+}
+
+.logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+  background: $gradient-primary;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transition: all 0.3s ease;
+
+  &:hover {
+    text-shadow: $shadow-neon;
+  }
+}
+
+.nav {
+  ul {
+    display: flex;
+    gap: $spacing-xl;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      color: $light;
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      transition: all 0.3s ease;
+
+      &:hover {
+        color: $primary;
+      }
+
+      &.active {
+        color: $primary;
+
+        &::after {
+          content: '';
+          position: absolute;
+          bottom: -8px;
+          left: 0;
+          width: 100%;
+          height: 2px;
+          background: $gradient-primary;
+          border-radius: 2px;
+        }
+      }
+    }
+  }
+}
+
+.actions {
+  display: flex;
+  gap: $spacing-md;
+}
+
+.loginBtn, .signupBtn {
+  padding: $spacing-sm $spacing-md;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.loginBtn {
+  background: transparent;
+  color: $light;
+  border: 1px solid rgba($light, 0.2);
+
+  &:hover {
+    border-color: $primary;
+    color: $primary;
+  }
+}
+
+.signupBtn {
+  background: $gradient-primary;
+  color: $darker;
+  border: none;
+
+  &:hover {
+    box-shadow: $shadow-neon;
+    transform: translateY(-2px);
+  }
+}
+
+.menuToggle {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: $spacing-sm;
+  z-index: 1001;
+
+  span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: $light;
+    margin: 5px 0;
+    transition: all 0.3s ease;
+  }
+
+  &.open {
+    span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    span:nth-child(2) {
+      opacity: 0;
+    }
+    span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+  }
+}
+
+@media (max-width: $breakpoint-lg) {
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 80%;
+    height: 100vh;
+    background: rgba($darker, 0.98);
+    backdrop-filter: blur(10px);
+    transition: right 0.3s ease;
+    padding: $spacing-xxl $spacing-xl;
+    z-index: 1000;
+
+    &.open {
+      right: 0;
+    }
+
+    ul {
+      flex-direction: column;
+      gap: $spacing-xl;
+      margin-top: $spacing-xxl;
+    }
+  }
+
+  .menuToggle {
+    display: block;
+  }
+
+  .actions {
+    display: none;
+  }
+}

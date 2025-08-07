@@ -1,0 +1,62 @@
+.feature-card {
+  background: linear-gradient(145deg, rgba($space-gray, 0.8), rgba($dark-matter, 0.9));
+  border-radius: 16px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba($quantum-blue, 0.1);
+  transition: $quantum-transition;
+
+  &[data-feature-card] {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  &__icon {
+    font-size: 2rem;
+    color: $quantum-blue;
+    margin-bottom: 1.5rem;
+    transition: $quantum-transition;
+  }
+
+  &__title {
+    font-family: 'Orbitron', sans-serif;
+    color: white;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    font-weight: 700;
+  }
+
+  &__desc {
+    color: rgba(white, 0.7);
+    line-height: 1.6;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: $quantum-gradient;
+    z-index: -1;
+    border-radius: 18px;
+    opacity: 0;
+    transition: $quantum-transition;
+  }
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+
+    &::before {
+      opacity: 0.3;
+    }
+
+    .feature-card__icon {
+      transform: scale(1.2);
+      text-shadow: $quantum-glow;
+    }
+  }
+}

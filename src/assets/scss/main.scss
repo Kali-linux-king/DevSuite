@@ -1,0 +1,26 @@
+// main.scss
+@use 'base/variables';
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/animations';
+@use 'base/mixins';
+
+@use 'layout/header';
+@use 'layout/navigation';
+@use 'layout/footer';
+@use 'layout/grid';
+
+@use 'components/buttons';
+@use 'components/tool-card';
+@use 'components/feature-card';
+@use 'components/quantum-sphere';
+@use 'components/testimonial';
+@use 'components/notification';
+
+@use 'pages/home';
+@use 'pages/about';
+@use 'pages/tools';
+
+@use 'utils/functions';
+@use 'utils/helpers';
+@use 'utils/futuristic';

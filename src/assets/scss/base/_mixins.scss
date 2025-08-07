@@ -1,0 +1,71 @@
+// Media Query Mixins
+@mixin sm {
+  @media (min-width: 640px) { @content; }
+}
+
+@mixin md {
+  @media (min-width: 768px) { @content; }
+}
+
+@mixin lg {
+  @media (min-width: 1024px) { @content; }
+}
+
+@mixin xl {
+  @media (min-width: 1280px) { @content; }
+}
+
+@mixin xxl {
+  @media (min-width: 1536px) { @content; }
+}
+
+// Flexbox Mixins
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-between {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@mixin flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+// Utility Mixins
+@mixin text-gradient($gradient) {
+  background: $gradient;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@mixin hover-effect {
+  transition: all 0.2s ease;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+}
+
+@mixin focus-effect {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+@mixin container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+  
+  @include lg {
+    padding: 0 var(--space-lg);
+  }
+}

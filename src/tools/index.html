@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevSuite - The most advanced suite of futuristic developer tools. 100+ free tools for developers, designers, and crypto enthusiasts.">
+    <meta name="keywords" content="developer tools, web tools, free tools, password generator, JSON formatter, image tools, crypto tools, PDF tools">
+    <title>DevSuite | Futuristic Developer Tools Suite</title>
+
+    <!-- Preload Resources -->
+    <link rel="preload" href="/src/assets/scss/main.scss" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" as="style">
+    <link rel="preload" href="/src/assets/js/main.js" as="script">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/public/assets/images/logo/logo-icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/public/assets/images/logo/apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/assets/scss/main.scss">
+
+    <style>
+        /* Critical CSS for initial load */
+        :root {
+            --primary: #00f0ff;
+            --secondary: #7928ca;
+            --accent: #ff0080;
+            --dark: #0a0a12;
+            --darker: #050508;
+            --light: #f8f9fa;
+            --lighter: #ffffff;
+        }
+        
+        body {
+            margin: 0;
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--darker);
+            color: var(--light);
+            overflow-x: hidden;
+        }
+        
+        #loading-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: var(--darker);
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+        
+        .quantum-loader {
+            position: relative;
+            width: 80px;
+            height: 80px;
+        }
+        
+        .quantum-dot {
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            background: var(--primary);
+            border-radius: 50%;
+            animation: quantum-float 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        @keyframes quantum-float {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+            50% { transform: translate(0, -20px) scale(1.2); opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="quantum-loader">
+            <div class="quantum-dot" style="top: 0; left: 32px; animation-delay: 0s;"></div>
+            <div class="quantum-dot" style="top: 32px; right: 0; animation-delay: 0.2s;"></div>
+            <div class="quantum-dot" style="bottom: 0; left: 32px; animation-delay: 0.4s;"></div>
+            <div class="quantum-dot" style="top: 32px; left: 0; animation-delay: 0.6s;"></div>
+        </div>
+        <p class="loading-text">Initializing Quantum Interface</p>
+    </div>
+
+    <!-- Main App -->
+    <div id="app">
+        <!-- Dynamic Quantum Background -->
+        <div id="quantum-bg"></div>
+
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-container">
+                <!-- Dynamic Logo - Changes daily -->
+                <div class="logo-container">
+                    <a href="/" class="logo-link">
+                        <img src="/public/assets/images/logo/logo-default.svg" alt="DevSuite Logo" class="main-logo" id="dynamic-logo">
+                        <span class="logo-text">DevSuite</span>
+                    </a>
+                </div>
+
+                <!-- Main Navigation -->
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li><a href="/">Home</a></li>
+                        <li class="nav-item active"><a href="/tools">All Tools</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#">Categories <i class="dropdown-icon"></i></a>
+                            <div class="dropdown-menu">
+                                <a href="/tools/developer">Developer</a>
+                                <a href="/tools/crypto">Crypto</a>
+                                <a href="/tools/image">Image</a>
+                                <a href="/tools/pdf">PDF</a>
+                                <a href="/tools/seo">SEO</a>
+                                <a href="/tools/text">Text</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="/about">About</a></li>
+                        <li class="nav-item"><a href="/news">News</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="theme-toggle" aria-label="Toggle theme">
+                        <span class="theme-icon"></span>
+                    </button>
+                    <button class="auth-btn login-btn">Login</button>
+                    <button class="auth-btn signup-btn">Sign Up</button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">
+                    <span class="title-highlight">Supercharge</span> Your Development Workflow
+                </h1>
+                <p class="hero-subtitle">
+                    The most advanced suite of futuristic tools for developers, designers, and crypto enthusiasts.
+                    <span class="typing-effect" data-words='["100+ Free Tools", "No Registration Required", "Privacy Focused", "Cutting-Edge Technology"]'></span>
+                </p>
+                <div class="hero-cta">
+                    <a href="/tools" class="cta-btn primary-cta">Explore Tools</a>
+                    <a href="#featured-tools" class="cta-btn secondary-cta">Most Popular</a>
+                </div>

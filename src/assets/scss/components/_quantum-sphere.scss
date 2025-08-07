@@ -1,0 +1,76 @@
+.quantum-sphere {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: radial-gradient(circle at center, 
+              rgba(var(--primary-rgb), 0.2) 0%, 
+              transparent 70%);
+  box-shadow: 0 0 60px rgba(var(--primary-rgb), 0.3);
+  margin: 0 auto;
+  
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: conic-gradient(
+      from 0deg,
+      rgba(var(--primary-rgb), 0.8),
+      rgba(var(--secondary-rgb), 0.8),
+      rgba(var(--accent-rgb), 0.8),
+      rgba(var(--primary-rgb), 0.8)
+    );
+    mask: radial-gradient(circle at center, transparent 40%, black 41%);
+    animation: rotate 20s linear infinite;
+  }
+  
+  #hero-sphere & {
+    width: 400px;
+    height: 400px;
+    
+    @include xl {
+      width: 500px;
+      height: 500px;
+    }
+  }
+}
+
+@keyframes rotate {
+  to { transform: rotate(360deg); }
+}
+
+.quantum-particle {
+  position: absolute;
+  border-radius: 50%;
+  background-color: var(--primary);
+  animation: float 8s ease-in-out infinite;
+  filter: blur(1px);
+  
+  @for $i from 1 through 50 {
+    &:nth-child(#{$i}) {
+      animation-delay: $i * 0.1s;
+      animation-duration: 5s + random(10);
+    }
+  }
+}
+
+.quantum-loader {
+  position: relative;
+  width: 80px;
+  height: 80px;
+  
+  .quantum-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: var(--primary);
+    border-radius: 50%;
+    animation: quantum-float 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  }
+}
+
+@keyframes quantum-float {
+  0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+  50% { transform: translate(0, -20px) scale(1.2); opacity: 0.7; }
+}

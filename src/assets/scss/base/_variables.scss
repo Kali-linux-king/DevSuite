@@ -1,0 +1,50 @@
+// Color Variables
+:root {
+  // Light Theme
+  --primary-light: #00f0ff;
+  --secondary-light: #7928ca;
+  --accent-light: #ff0080;
+  
+  // Dark Theme
+  --primary-dark: #00f0ff;
+  --secondary-dark: #7928ca;
+  --accent-dark: #ff0080;
+  
+  // Theme Variables (will be set by JavaScript)
+  --primary: var(--primary-dark);
+  --secondary: var(--secondary-dark);
+  --accent: var(--accent-dark);
+  --bg-primary: #050508;
+  --bg-secondary: #0a0a12;
+  --text-primary: #f8f9fa;
+  --text-secondary: #d1d5db;
+  
+  // Spacing
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  
+  // Border Radius
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+  
+  // Shadows
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="light"] {
+  --primary: var(--primary-light);
+  --secondary: var(--secondary-light);
+  --accent: var(--accent-light);
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --text-primary: #050508;
+  --text-secondary: #4b5563;
+}

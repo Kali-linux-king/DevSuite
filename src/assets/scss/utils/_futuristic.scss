@@ -1,0 +1,117 @@
+// Futuristic Utility Classes & Effects
+
+// Neon Glow
+.glow {
+  box-shadow: 0 0 16px var(--primary), 0 0 32px var(--accent), 0 0 64px var(--primary);
+}
+
+// Neon Text
+.neon-text {
+  color: var(--primary);
+  text-shadow: 0 0 8px var(--primary), 0 0 16px var(--accent), 0 0 32px var(--primary);
+}
+
+// Glassmorphism Panel
+.glass {
+  background: rgba(20, 20, 40, 0.4);
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0,240,255,0.2);
+  box-shadow: 0 4px 32px rgba(0,240,255,0.08);
+}
+
+// Animated Gradient Border
+.animated-border {
+  position: relative;
+  z-index: 1;
+}
+.animated-border::before {
+  content: '';
+  position: absolute;
+  inset: -2px;
+  z-index: -1;
+  border-radius: inherit;
+  background: linear-gradient(270deg, var(--primary), var(--accent), var(--secondary), var(--primary));
+  background-size: 600% 600%;
+  animation: border-gradient-move 6s linear infinite;
+}
+@keyframes border-gradient-move {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+// Futuristic Button
+.futuristic-btn {
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  color: #fff;
+  border: none;
+  border-radius: var(--radius-full);
+  box-shadow: 0 0 8px var(--primary);
+  padding: 0.75em 2em;
+  font-family: 'Orbitron', sans-serif;
+  font-size: var(--text-lg);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: box-shadow 0.3s, background 0.3s;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.futuristic-btn:hover {
+  box-shadow: 0 0 24px var(--accent), 0 0 48px var(--primary);
+  background: linear-gradient(90deg, var(--accent), var(--primary));
+}
+
+// Futuristic Card
+.futuristic-card {
+  @extend .glass;
+  @extend .glow;
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  transition: box-shadow 0.3s, border 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.futuristic-card:hover {
+  box-shadow: 0 0 48px var(--accent), 0 0 96px var(--primary);
+  border: 1.5px solid var(--primary);
+}
+
+// Futuristic Heading
+.futuristic-heading {
+  @extend .neon-text;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  position: relative;
+}
+.futuristic-heading::after {
+  content: '';
+  display: block;
+  margin: 0.5em auto 0 auto;
+  width: 60%;
+  height: 3px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--accent));
+  box-shadow: 0 0 8px var(--primary);
+}
+
+// Particle Background (for hero/sections)
+.futuristic-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at 60% 40%, rgba(0,240,255,0.08) 0%, transparent 70%),
+              radial-gradient(circle at 20% 80%, rgba(255,0,128,0.06) 0%, transparent 80%);
+}
+
+// Utility for glassy navbars/footers
+.futuristic-navbar, .futuristic-footer {
+  @extend .glass;
+  @extend .glow;
+  border-radius: 0 0 var(--radius-lg) var(--radius-lg);
+  padding: var(--space-md) var(--space-xl);
+}

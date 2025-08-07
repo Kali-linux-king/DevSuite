@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="DevSuite - The most advanced suite of futuristic developer tools. 100+ free tools for developers, designers, and crypto enthusiasts.">
+    <meta name="keywords" content="developer tools, web tools, free tools, password generator, JSON formatter, image tools, crypto tools, PDF tools">
+    <title>DevSuite | Futuristic Developer Tools Suite</title>
+
+    <!-- Preload Resources -->
+    <link rel="preload" href="/src/assets/css/main.css" as="style">
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" as="style">
+    <link rel="preload" href="/src/assets/js/main.js" as="script">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/public/assets/images/logo/logo-icon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/public/assets/images/logo/apple-touch-icon.png">
+
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/src/assets/css/main.css">
+
+    <style>
+        /* Minimal critical CSS for loading screen only */
+        :root {
+            --primary: #00f0ff;
+            --darker: #050508;
+        }
+        body { margin: 0; background: var(--darker); }
+        #loading-screen {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            display: flex; flex-direction: column; justify-content: center; align-items: center;
+            background: var(--darker); z-index: 9999; transition: opacity 0.5s ease;
+        }
+        .quantum-loader { position: relative; width: 80px; height: 80px; }
+        .quantum-dot {
+            position: absolute; width: 16px; height: 16px; background: var(--primary);
+            border-radius: 50%; animation: quantum-float 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes quantum-float {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 1; }
+            50% { transform: translate(0, -20px) scale(1.2); opacity: 0.7; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div id="loading-screen">
+        <div class="quantum-loader">
+            <div class="quantum-dot" style="top: 0; left: 32px; animation-delay: 0s;"></div>
+            <div class="quantum-dot" style="top: 32px; right: 0; animation-delay: 0.2s;"></div>
+            <div class="quantum-dot" style="bottom: 0; left: 32px; animation-delay: 0.4s;"></div>
+            <div class="quantum-dot" style="top: 32px; left: 0; animation-delay: 0.6s;"></div>
+        </div>
+        <p class="loading-text">Initializing Quantum Interface</p>
+    </div>
+
+    <!-- Main App -->
+    <div id="app">
+        <!-- Dynamic Quantum Background -->
+        <div id="quantum-bg"></div>
+
+        <!-- Header -->
+        <header class="main-header">
+            <div class="header-container">
+                <!-- Dynamic Logo - Changes daily -->
+                <div class="logo-container">
+                    <a href="/" class="logo-link">
+                        <img src="../assets/images/logo/logo-default.svg" alt="DevSuite Logo" class="main-logo" id="dynamic-logo">
+                        <span class="logo-text">DevSuite</span>
+                    </a>
+                </div>
+
+                <!-- Main Navigation -->
+                <nav class="main-nav">
+                    <ul class="nav-list">
+                        <li class="nav-item active"><a href="/">Home</a></li>
+                        <li class="nav-item"><a href="/tools">All Tools</a></li>
+                        <li class="nav-item dropdown">
+                            <a href="#" class="dropdown-toggle" aria-haspopup="true" aria-expanded="false">Categories <i class="dropdown-icon"></i></a>
+                            <div class="dropdown-menu" role="menu">
+                                <a href="/tools/developer">Developer</a>
+                                <a href="/tools/crypto">Crypto</a>
+                                <a href="/tools/image">Image</a>
+                                <a href="/tools/pdf">PDF</a>
+                                <a href="/tools/seo">SEO</a>
+                                <a href="/tools/text">Text</a>
+                            </div>
+                        </li>
+                        <li class="nav-item"><a href="/about">About</a></li>
+                        <li class="nav-item"><a href="/news">News</a></li>
+                    </ul>
+                </nav>
+
+                <div class="header-actions">
+                    <button class="theme-toggle" aria-label="Toggle theme">
+                        <span class="theme-icon"></span>
+                    </button>
+                    <a class="auth-btn login-btn" href="/login">Login</a>
+                    <a class="auth-btn signup-btn" href="/signup">Sign Up</a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero-section futuristic-bg animated-border">
+            <div class="hero-content">
+                <h1 class="hero-title futuristic-heading">
+                    <span class="title-highlight">Supercharge</span> Your Development Workflow
+                </h1>
+                <p class="hero-subtitle">
+                    The most advanced suite of futuristic tools for developers, designers, and crypto enthusiasts.
+                    <span class="typing-effect" data-words='["100+ Free Tools", "No Registration Required", "Privacy Focused", "Cutting-Edge Technology"]'></span>
+                </p>
+                <div class="hero-cta">
+                    <a href="/tools" class="cta-btn primary-cta futuristic-btn glow">Explore Tools</a>
+                    <a href="#featured-tools" class="cta-btn secondary-cta futuristic-btn glow">Most Popular</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="100">0</span>+
+                        <span class="stat-label">Tools</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="50000">0</span>+
+                        <span class="stat-label">Daily Users</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number" data-count="99">0</span>%
+                        <span class="stat-label">Satisfaction</span>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="quantum-sphere" id="hero-sphere"></div>
+            </div>
+        </section>
+
+        <!-- Featured Tools Section -->
+        <section class="featured-tools futuristic-bg animated-border" id="featured-tools">
+            <div class="section-header">
+                <h2 class="futuristic-heading">Most Used Tools</h2>
+                <p>Our most popular utilities across all categories</p>
+            </div>
+            <div class="tools-grid">
+                <!-- Developer Tool -->
+                <a href="/tools/developer/password-generator" class="tool-card">
+                    <div class="tool-icon" style="background-color: #00f0ff20;">
+                        <img src="../assets/images/icons/tools/password.svg" alt="Password Generator">
+                    </div>
+                    <h3 class="futuristic-heading">Password Generator</h3>
+                    <p>Create strong, secure passwords instantly</p>
+                    <div class="tool-meta">
+                        <span class="tool-category">Developer</span>
+                        <span class="tool-rating">4.9 ★ (12K)</span>
+                    </div>
+                </a>
+
+                <!-- Crypto Tool -->
+                <a href="/tools/crypto/crypto-ticker" class="tool-card">
+                    <div class="tool-icon" style="background-color: #7928ca20;">
+                        <img src="../assets/images/icons/tools/crypto.svg" alt="Crypto Ticker">
+                    </div>
+                    <h3 class="futuristic-heading">Crypto Ticker</h3>
+                    <p>Real-time cryptocurrency prices</p>
+                    <div class="tool-meta">
+                        <span class="tool-category">Crypto</span>
+                        <span class="tool-rating">4.8 ★ (8.5K)</span>
+                    </div>
+                </a>
+
+                <!-- Image Tool -->
+                <a href="/tools/image/image-compressor" class="tool-card">
+                    <div class="tool-icon" style="background-color: #ff008020;">
+                        <img src="../assets/images/icons/tools/image.svg" alt="Image Compressor">
+                    </div>
+                    <h3 class="futuristic-heading">Image Compressor</h3>
+                    <p>Reduce image size without quality loss</p>
+                    <div class="tool-meta">
+                        <span class="tool-category">Image</span>
+                        <span class="tool-rating">4.7 ★ (15K)</span>
+                    </div>
+                </a>
+
+                <!-- PDF Tool -->
+                <a href="/tools/pdf/pdf-merger" class="tool-card">
+                    <div class="tool-icon" style="background-color: #00f0ff20;">
+                        <img src="../assets/images/icons/tools/pdf.svg" alt="PDF Merger">
+                    </div>
+                    <h3 class="futuristic-heading">PDF Merger</h3>
+                    <p>Combine multiple PDFs into one</p>
+                    <div class="tool-meta">
+                        <span class="tool-category">PDF</span>
+                        <span class="tool-rating">4.6 ★ (7.2K)</span>
+                    </div>
+                </a>
+
+                <!-- SEO Tool -->
+                <a href="/tools/seo/meta-generator" class="tool-card">
+                    <div class="tool-icon" style="background-color: #7928ca20;">
+                        <img src="../assets/images/icons/tools/seo.svg" alt="Meta Generator">
+                    </div>
+                    <h3 class="futuristic-heading">Meta Generator</h3>
+                    <p>Create perfect meta tags for SEO</p>
+                    <div class="tool-meta">
+                        <span class="tool-category">SEO</span>
+                        <span class="tool-rating">4.5 ★ (5.8K)</span>
+                    </div>
+                </a>
+
+                <!-- Text Tool -->
+                <a href="/tools/text/case-converter" class="tool-card">
+                    <div class="tool-icon" style="background-color: #ff008020;">
+                        <img src="../assets/images/icons/tools/text.svg" alt="Case Converter">
+                    </div>
+                    <h3 class="futuristic-heading">Case Converter</h3>
+                    <p>Change text case with one click</p>
+                    <div class="tool-meta">
+                        <span class="tool-category">Text</span>
+                        <span class="tool-rating">4.4 ★ (6.3K)</span>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features-section futuristic-bg animated-border">
+            <div class="section-header">
+                <h2 class="futuristic-heading">Why Choose DevSuite?</h2>
+                <p>Experience the future of developer tools</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="../assets/images/icons/features/rocket.svg" alt="Fast Performance">
+                    </div>
+                    <h3 class="futuristic-heading">Lightning Fast</h3>
+                    <p>Optimized WebAssembly core delivers unmatched performance</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="../assets/images/icons/features/shield.svg" alt="Privacy Focused">
+                    </div>
+                    <h3 class="futuristic-heading">Privacy Focused</h3>
+                    <p>All processing happens in your browser - no data leaves your device</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="../assets/images/icons/features/infinity.svg" alt="Free Forever">
+                    </div>
+                    <h3 class="futuristic-heading">Free Forever</h3>
+                    <p>No hidden costs, no subscriptions, no paywalls</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <img src="../assets/images/icons/features/update.svg" alt="Regular Updates">
+                    </div>
+                    <h3 class="futuristic-heading">Weekly Updates</h3>
+                    <p>New tools and features added every week</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials-section futuristic-bg animated-border">
+            <div class="section-header">
+                <h2 class="futuristic-heading">What Our Users Say</h2>
+                <p>Join 50,000+ developers who boost their productivity daily</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="user-rating">★★★★★</div>
+                    <p class="testimonial-text">"DevSuite has become my daily driver for all development tasks. The password generator alone has saved me hours!"</p>
+                    <div class="user-info">
+                        <img src="../assets/images/testimonials/user1.jpg" alt="Portrait of Sarah J." class="user-avatar">
+                        <div class="user-details">
+                            <h4 class="futuristic-heading">Sarah J.</h4>
+                            <span>Senior Developer @TechCorp</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="user-rating">★★★★★</div>
+                    <p class="testimonial-text">"As a crypto trader, the real-time ticker and wallet validator are indispensable tools in my workflow."</p>
+                    <div class="user-info">
+                        <img src="../assets/images/testimonials/user2.jpg" alt="Portrait of Michael T." class="user-avatar">
+                        <div class="user-details">
+                            <h4 class="futuristic-heading">Michael T.</h4>
+                            <span>Crypto Analyst</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="user-rating">★★★★☆</div>
+                    <p class="testimonial-text">"The image tools are fantastic for my design work. I've completely replaced my desktop apps with DevSuite."</p>
+                    <div class="user-info">
+                        <img src="../assets/images/testimonials/user3.jpg" alt="Portrait of Emma L." class="user-avatar">
+                        <div class="user-details">
+                            <h4 class="futuristic-heading">Emma L.</h4>
+                            <span>UI/UX Designer</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="rating-survey">
+                <h3 class="futuristic-heading">Rate Your Experience</h3>
+                <div class="stars-rating">
+                    <span class="star" data-rating="1">★</span>
+                    <span class="star" data-rating="2">★</span>
+                    <span class="star" data-rating="3">★</span>
+                    <span class="star" data-rating="4">★</span>
+                    <span class="star" data-rating="5">★</span>
+                </div>
+                <p class="rating-text">4.9/5 from 2,458 reviews</p>
+            </div>
+        </section>
+
+        <!-- Newsletter Section -->
+        <section class="newsletter-section futuristic-bg animated-border">
+            <div class="newsletter-container">
+                <div class="newsletter-content">
+                    <h2 class="futuristic-heading">Stay Updated</h2>
+                    <p>Subscribe to get notified about new tools and features</p>
+                    <form class="newsletter-form" id="newsletter-form">
+                        <div class="input-group">
+                            <input type="email" id="newsletter-email" placeholder="Your email address" required>
+                            <input type="text" name="website" style="display:none" tabindex="-1" autocomplete="off">
+                            <button type="submit">Subscribe</button>
+                        </div>
+                        <div class="form-meta">
+                            <input type="checkbox" id="newsletter-consent" checked>
+                            <label for="newsletter-consent">I agree to receive updates (1-2 emails/month)</label>
+                        </div>
+                        <div id="newsletter-error" style="color:#ff0080;display:none;font-size:0.9em;"></div>
+                    </form>
+                </div>
+                <div class="newsletter-visual">
+                    <img src="../assets/images/illustrations/newsletter.svg" alt="Newsletter Illustration">
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <div class="footer-container">
+                <div class="footer-brand">
+                    <a href="/" class="footer-logo">
+                        <img src="../assets/images/logo/logo-light.svg" alt="DevSuite Logo">
+                    </a>
+                    <p class="footer-tagline">The future of developer tools</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Twitter"><img src="../assets/images/icons/social/twitter.svg" alt=""></a>
+                        <a href="#" aria-label="GitHub"><img src="../assets/images/icons/social/github.svg" alt=""></a>
+                        <a href="#" aria-label="Discord"><img src="../assets/images/icons/social/discord.svg" alt=""></a>
+                        <a href="#" aria-label="LinkedIn"><img src="../assets/images/icons/social/linkedin.svg" alt=""></a>
+                    </div>
+                </div>
+                <div class="footer-links">
+                    <div class="links-column">
+                        <h3 class="futuristic-heading">Tools</h3>
+                        <ul>
+                            <li><a href="/tools/developer">Developer Tools</a></li>
+                            <li><a href="/tools/crypto">Crypto Tools</a></li>
+                            <li><a href="/tools/image">Image Tools</a></li>
+                            <li><a href="/tools/pdf">PDF Tools</a></li>
+                            <li><a href="/tools/seo">SEO Tools</a></li>
+                            <li><a href="/tools/text">Text Tools</a></li>
+                        </ul>
+                    </div>
+                    <div class="links-column">
+                        <h3 class="futuristic-heading">Company</h3>
+                        <ul>
+                            <li><a href="/about">About Us</a></li>
+                            <li><a href="/news">News</a></li>
+                            <li><a href="/careers">Careers</a></li>
+                            <li><a href="/contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="links-column">
+                        <h3 class="futuristic-heading">Legal</h3>
+                        <ul>
+                            <li><a href="/privacy">Privacy Policy</a></li>
+                            <li><a href="/terms">Terms of Service</a></li>
+                            <li><a href="/cookies">Cookie Policy</a></li>
+                            <li><a href="/dmca">DMCA</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="footer-year"></span> DevSuite. All rights reserved.</p>
+                <div class="footer-extras">
+                    <a href="/sitemap">Sitemap</a>
+                    <a href="/status">Status</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <script src="/src/assets/js/main.js"></script>
+    <script>
+        // Set dynamic year in footer
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+// Color Functions
+@function hexToRGB($hex) {
+  @return red($hex), green($hex), blue($hex);
+}
+
+@function tint($color, $percentage) {
+  @return mix(white, $color, $percentage);
+}
+
+@function shade($color, $percentage) {
+  @return mix(black, $color, $percentage);
+}
+
+// Math Functions
+@function rem($px) {
+  @return calc($px / 16) * 1rem;
+}
+
+@function em($px, $context: 16) {
+  @return calc($px / $context) * 1em;
+}
+
+// Aspect Ratio
+@function aspect-ratio($width, $height) {
+  @return calc($height / $width) * 100%;
+}
